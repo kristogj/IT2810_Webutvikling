@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project1</title>
+
+    <!-- Connect the style.css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Instead of downloading jQuery I simply include it from a CDN (in this case Google).
+         Read the advantages by doing that in the documentation -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="grid-container">
+    <div class="item1">Project 1 - Mitt abstrakte bilde</div>
+    <div class="item2">
+        <h4>Main</h4>
+        <p>Mabye add some filter?</p>
+        <ul>
+            <li>Filter 1</li>
+            <li>Filter 2</li>
+            <li>Filter 3</li>
+            <li>Filter 4</li>
+        </ul>
+    </div>
+    <div class="item3">
+        <!-- Here you should add the canvas -->
+        <h4>Main</h4>
+        <canvas id="myCanvas" width="700" height="500"></canvas>
+    </div>
+    <div class="item5">
+        <button class="docButton">Documentation</button>
+        <!-- The Modal -->
+        <div id="myPopup" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- Import the jQuery written in script.js -->
+<script src="script.js" type="text/javascript"></script>
+
+</body>
+</html>
