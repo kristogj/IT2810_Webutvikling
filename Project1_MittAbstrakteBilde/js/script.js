@@ -1,11 +1,13 @@
-
-// Event on when pressing documentation button
-$("#docButton").click( () => {
-    $("#myPopup").css("display","block");
+$("#homeBtn").click(function () {
+    $(".home").show();
+    $(".documentation").hide();
 });
 
-// Event when closeing the modal
-$(".close").click(() => {
-    $("#myPopup").css("display","none");
+$("#docBtn").click(function () {
+    $(".documentation").show();
+    $(".home").hide();
 });
+
+
+
 
