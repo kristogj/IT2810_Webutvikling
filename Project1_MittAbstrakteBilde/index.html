@@ -7,9 +7,11 @@
 
     <!-- Connect the style.css -->
     <link rel="stylesheet" href="style.css">
-    <!-- Instead of downloading jQuery I simply include it from a CDN (in this case Google).
-         Read the advantages by doing that in the documentation -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Use a CDN to load jQuery, or use it locally if there is no internet connection -->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>window.jQuery || document.write("<script src='js/jquery-3.3.1.min.js'><\/script>");</script>
+
+
 </head>
 
 <body>
@@ -32,7 +34,7 @@
         <canvas id="myCanvas" width="700" height="500"></canvas>
     </div>
     <div class="item5">
-        <button class="docButton">Documentation</button>
+        <button id="docButton">Documentation</button>
         <!-- The Modal -->
         <div id="myPopup" class="modal">
             <!-- Modal content -->
@@ -48,7 +50,8 @@
 </div>
 
 <!-- Import the jQuery written in script.js -->
-<script src="script.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+
 
 </body>
 </html>
