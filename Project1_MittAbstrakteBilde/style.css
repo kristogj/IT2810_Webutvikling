@@ -75,7 +75,7 @@ canvas {
     padding: 0;
     margin: 15px auto;
     display: block;
-    width: 800px;
+    background: #f3f8f6;
 }
 
 .footer{
