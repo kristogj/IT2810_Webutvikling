@@ -18,11 +18,11 @@ function Object(x,y,dx,dy,color) {
     this.dy_max = dy;
 
     this.increaseDx = (percentage) => {
-        this.dx = this.dx_max * (percentage/100)
+        this.dx = this.dx_max * (percentage/100);
     };
 
     this.increaseDy = (percentage) => {
-        this.dy = this.dy_max * (percentage/100)
+        this.dy = this.dy_max * (percentage/100);
     };
 
 

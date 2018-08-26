@@ -23,8 +23,8 @@ $(document).ready(() => {
     //Make all the new figures
     for(let i = 0; i < 20; i++){
         //Common values
-        const dx = (Math.random() - 0.5) * 8;
-        const dy = (Math.random() - 0.5) * 8;
+        const dx = (Math.random() - 0.5) * 20;
+        const dy = (Math.random() - 0.5) * 20;
 
         //Circle
         const radius = (Math.random() * 20) + 1;
