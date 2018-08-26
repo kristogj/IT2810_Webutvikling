@@ -10,14 +10,25 @@ const c = canvas[0].getContext("2d");
 function Object(x,y,dx,dy,color) {
     this.x = x;
     this.y = y;
-    this.dx = dx;
-    this.dy = dy;
+    this.dx = dx * 0.5; //Start at 50%
+    this.dy = dy * 0.5;
     this.color = color;
+
+    this.dx_max = dx;
+    this.dy_max = dy;
+
+    this.increaseDx = (percentage) => {
+        this.dx = this.dx_max * (percentage/100)
+    };
+
+    this.increaseDy = (percentage) => {
+        this.dy = this.dy_max * (percentage/100)
+    };
 
 
 }
 //Circle class
-export function Circle(x,y,dx,dy,radius,color){
+function Circle(x,y,dx,dy,radius,color){
     Object.call(this,x,y,dx,dy,color);
     this.radius = radius;
 
@@ -47,7 +58,7 @@ export function Circle(x,y,dx,dy,radius,color){
 
 }
 
-export function Rectangle(x,y,dx,dy,w,h,color){
+function Rectangle(x,y,dx,dy,w,h,color){
     Object.call(this,x,y,dx,dy,color);
     this.w = w;
     this.h = h;

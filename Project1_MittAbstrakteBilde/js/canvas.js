@@ -13,112 +13,11 @@ $(document).ready(() => {
     //Used for doing changes on the canvas, will be used alot
     const c = canvas[0].getContext("2d");
 
-//Common for every kind of shapes
-    function Object(x,y,dx,dy,color) {
-        this.x = x;
-        this.y = y;
-        this.dx = dx;
-        this.dy = dy;
-        this.color = color;
 
-
-    }
-//Circle class
-    function Circle(x,y,dx,dy,radius,color){
-        Object.call(this,x,y,dx,dy,color);
-        this.radius = radius;
-
-        //Make a draw function so that we can see it on the canvas
-        this.draw = () => {
-            c.beginPath();
-            c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
-            c.fillStyle = this.color;
-            c.fill();
-        };
-
-        this.update = () => {
-
-            if(this.x + this.radius > width || this.x - this.radius < 0){
-                this.dx *= -1;
-            }
-
-            if(this.y + this.radius > height || this.y - this.radius < 0){
-                this.dy *= -1;
-            }
-
-            this.x += this.dx;
-            this.y += this.dy;
-
-            this.draw();
-        }
-
-    }
-
-    function Rectangle(x,y,dx,dy,w,h,color){
-        Object.call(this,x,y,dx,dy,color);
-        this.w = w;
-        this.h = h;
-
-        this.draw = () => {
-            c.beginPath();
-            c.rect(this.x,this.y,this.w,this.h);
-            c.fillStyle = this.color;
-            c.fill();
-        };
-
-        this.update = () => {
-
-            if(this.x + this.w > width || this.x < 0){
-                this.dx *= -1;
-            }
-
-            if(this.y + this.h > height || this.y < 0){
-                this.dy *= -1;
-            }
-
-            this.x += this.dx;
-            this.y += this.dy;
-
-
-            this.draw();
-        }
-    }
-
-
-
-    function Triangle(x,y,dx,dy,s,color) {
-        Object.call(this, x, y, dx, dy, color);
-        this.s = s;
-
-        this.draw = () => {
-            c.beginPath();
-            c.moveTo(this.x, this.y);
-            c.lineTo(this.x, this.y + this.s);
-            c.lineTo(this.x + this.s, this.y + this.s);
-            c.closePath();
-            c.fillStyle = this.color;
-            c.fill();
-        };
-
-        this.update = () => {
-            if (this.x + this.s > width || this.x < 0) {
-                this.dx *= -1;
-            }
-            if (this.y + this.s > height || this.y < 0) {
-                this.dy *= -1;
-            }
-            this.x += this.dx;
-            this.y += this.dy;
-
-
-            this.draw();
-        };
-    }
 
     //Figure containers
-    let circleArray = [];
-    let rectArray = [];
-    let triangleArray = [];
+    let figures = [];
+
 
 
     //Make all the new figures
@@ -131,21 +30,21 @@ $(document).ready(() => {
         const radius = (Math.random() * 20) + 1;
         const xc = Math.random() * (width - radius * 2 ) + radius ;
         const yc = Math.random() * (height - radius * 2) + radius;
+        figures.push(new Circle(xc,yc,dx,dy,radius,getRandomColor()));
 
         //Rectangle
         const w = (Math.random() * 30) + 1;
         const h = w;
         const xr = Math.random() * (width  - w*2) + w;
         const yr = Math.random() * (height - h*2) +h;
+        figures.push(new Rectangle(xr,yr,dx,dy,w,h,getRandomColor()));
 
         //Triangle
         const xt = Math.random() * (width  - w*2) + w;
         const yt = Math.random() * (height - h*2) +h;
         const s = (Math.random() * 30) + 5;
+        figures.push(new Triangle(xt,yt,dx,dy,s,getRandomColor()));
 
-        circleArray.push(new Circle(xc,yc,dx,dy,radius,getRandomColor()));
-        rectArray.push(new Rectangle(xr,yr,dx,dy,w,h,getRandomColor()));
-        triangleArray.push(new Triangle(xt,yt,dx,dy,s,getRandomColor()));
     }
 
 
@@ -156,9 +55,7 @@ $(document).ready(() => {
         requestAnimationFrame(animate);
         //Clear the canvas, or else it would be full of new and new drawings
         c.clearRect(0,0,width,height);
-        rectArray.forEach((rect) => {rect.update()});
-        circleArray.forEach((circle) => {circle.update()});
-        triangleArray.forEach((circle) => {circle.update()});
+        figures.forEach((fig) => {fig.update()})
 
     }
 
@@ -168,10 +65,17 @@ $(document).ready(() => {
     }
 
     //Handle fliter-values
-    $(".slider")[0].oninput = function() {
-        //TODO: use this value to update the dx speed of each figure in canvas..
-        let v = this.value;
-        $(".valtxt")[0].innerHTML = v;
+    $("#dx")[0].oninput = function() {
+        // Iterate the figures and change their speed
+        $("#dxtxt")[0].innerHTML = this.value;
+        figures.forEach((fig) => {fig.increaseDx(this.value)});
+    };
+
+    //Handle fliter-values
+    $("#dy")[0].oninput = function() {
+        // Iterate the figures and change their speed
+        $("#dytxt")[0].innerHTML = this.value;
+        figures.forEach((fig) => {fig.increaseDy(this.value)});
     };
 
 
