@@ -1,4 +1,7 @@
+
+
 $(document).ready(() => {
+
     const width = 700;
     const height = 400;
     const colors = ["#d9ebf1", "#9cc2c8", "#ff373f","#283031"];
@@ -10,7 +13,7 @@ $(document).ready(() => {
     //Used for doing changes on the canvas, will be used alot
     const c = canvas[0].getContext("2d");
 
-    //Common for every kind of shapes
+//Common for every kind of shapes
     function Object(x,y,dx,dy,color) {
         this.x = x;
         this.y = y;
@@ -20,7 +23,7 @@ $(document).ready(() => {
 
 
     }
-    //Circle class
+//Circle class
     function Circle(x,y,dx,dy,radius,color){
         Object.call(this,x,y,dx,dy,color);
         this.radius = radius;
@@ -81,13 +84,45 @@ $(document).ready(() => {
         }
     }
 
+
+
+    function Triangle(x,y,dx,dy,s,color) {
+        Object.call(this, x, y, dx, dy, color);
+        this.s = s;
+
+        this.draw = () => {
+            c.beginPath();
+            c.moveTo(this.x, this.y);
+            c.lineTo(this.x, this.y + this.s);
+            c.lineTo(this.x + this.s, this.y + this.s);
+            c.closePath();
+            c.fillStyle = this.color;
+            c.fill();
+        };
+
+        this.update = () => {
+            if (this.x + this.s > width || this.x < 0) {
+                this.dx *= -1;
+            }
+            if (this.y + this.s > height || this.y < 0) {
+                this.dy *= -1;
+            }
+            this.x += this.dx;
+            this.y += this.dy;
+
+
+            this.draw();
+        };
+    }
+
     //Figure containers
     let circleArray = [];
     let rectArray = [];
+    let triangleArray = [];
 
 
     //Make all the new figures
-    for(let i = 0; i < 40; i++){
+    for(let i = 0; i < 20; i++){
         //Common values
         const dx = (Math.random() - 0.5) * 8;
         const dy = (Math.random() - 0.5) * 8;
@@ -103,8 +138,14 @@ $(document).ready(() => {
         const xr = Math.random() * (width  - w*2) + w;
         const yr = Math.random() * (height - h*2) +h;
 
+        //Triangle
+        const xt = Math.random() * (width  - w*2) + w;
+        const yt = Math.random() * (height - h*2) +h;
+        const s = (Math.random() * 30) + 5;
+
         circleArray.push(new Circle(xc,yc,dx,dy,radius,getRandomColor()));
         rectArray.push(new Rectangle(xr,yr,dx,dy,w,h,getRandomColor()));
+        triangleArray.push(new Triangle(xt,yt,dx,dy,s,getRandomColor()));
     }
 
 
@@ -116,7 +157,8 @@ $(document).ready(() => {
         //Clear the canvas, or else it would be full of new and new drawings
         c.clearRect(0,0,width,height);
         rectArray.forEach((rect) => {rect.update()});
-        circleArray.forEach((circle) => {circle.update()})
+        circleArray.forEach((circle) => {circle.update()});
+        triangleArray.forEach((circle) => {circle.update()});
 
     }
 
@@ -131,9 +173,6 @@ $(document).ready(() => {
         let v = this.value;
         $(".valtxt")[0].innerHTML = v;
     };
-
-
-
 
 
 
