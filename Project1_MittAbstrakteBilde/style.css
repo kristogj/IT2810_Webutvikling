@@ -88,12 +88,7 @@ canvas {
     text-align: center;
 }
 
-.footer{
-    background: rgba(22, 25, 24, 0.9)  !important;
-    grid-column:1/6;
-    grid-row:10;
-    color:white;
-}
+
 
 
 /* Sliders */

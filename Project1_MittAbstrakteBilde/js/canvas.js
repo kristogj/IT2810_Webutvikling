@@ -4,7 +4,7 @@ $(document).ready(() => {
 
     const width = 700;
     const height = 400;
-    const colors = ["#d9ebf1", "#9cc2c8", "#ff373f","#283031"];
+    let colors = ["#d9ebf1", "#9cc2c8", "#ff373f","#283031"];
     const canvas = $("#canvas");
 
     // Setup size of canvas
@@ -36,13 +36,13 @@ $(document).ready(() => {
         const w = (Math.random() * 30) + 1;
         const h = w;
         const xr = Math.random() * (width  - w*2) + w;
-        const yr = Math.random() * (height - h*2) +h;
+        const yr = Math.random() * (height - h*2) + h;
         figures.push(new Rectangle(xr,yr,dx,dy,w,h,getRandomColor()));
 
         //Triangle
-        const xt = Math.random() * (width  - w*2) + w;
-        const yt = Math.random() * (height - h*2) +h;
         const s = (Math.random() * 30) + 5;
+        const xt = Math.random() * (width  - s*2) + s;
+        const yt = Math.random() * (height - s*2) + s;
         figures.push(new Triangle(xt,yt,dx,dy,s,getRandomColor()));
 
     }
@@ -77,6 +77,14 @@ $(document).ready(() => {
         $("#dytxt")[0].innerHTML = this.value;
         figures.forEach((fig) => {fig.increaseDy(this.value)});
     };
+
+    // Function to change color of figures
+    $(".colorPicker").get().forEach((picker) => {picker.oninput = () => {
+        const oldValue = colors[picker.id];
+        const filteredFigures = figures.filter(fig => fig.color === oldValue);
+        filteredFigures.forEach(fig => fig.color = picker.value);
+        colors[picker.id] = picker.value;
+    }});
 
 
 
