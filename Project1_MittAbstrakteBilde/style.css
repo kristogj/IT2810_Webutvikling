@@ -73,7 +73,16 @@ h3{
 }
 
 .documentation{
-    display: none;
+    display:grid;
+    grid-template-columns:repeat(2, 50%);
+    grid-gap:1em;
+    grid-auto-rows: minmax(100px, auto);
+
+}
+.documentation > div {
+    background-color: #f3f8f6;
+    word-wrap: break-word;
+    margin:10px 10px 10px 10px;
 }
 
 canvas {

@@ -1,3 +1,5 @@
+$(".documentation").hide();
+
 $("#homeBtn").click(function () {
     $(".home").show();
     $(".documentation").hide();
