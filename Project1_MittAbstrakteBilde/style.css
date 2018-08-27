@@ -73,6 +73,7 @@ h3{
 }
 
 .documentation{
+    /**/
     display:grid;
     grid-template-columns:repeat(2, 50%);
     grid-gap:1em;
