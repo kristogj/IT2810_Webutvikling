@@ -1,4 +1,4 @@
-$(".home").hide();
+$(".documentation").hide();
 
 $("#homeBtn").click(function () {
     $(".home").show();

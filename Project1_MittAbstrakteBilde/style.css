@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+p {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
 .page {
     background: #f3f8f6;
     position: absolute;
@@ -104,6 +108,13 @@ h3{
 }
 
 img {
+    display: block;
+    width:50%;
+    margin:0 auto;
+}
+
+figcaption {
+    font-size: 8px;
     display: block;
     width:50%;
     margin:0 auto;

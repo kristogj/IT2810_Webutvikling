@@ -50,7 +50,32 @@
         <div class="main">
             <div class="home">
                 <canvas id="canvas"></canvas>
-                <p id="canvasText">"Animated Art"</p>
+                <p id="canvasText">Animated Art</p>
+                <p class="content">Edvard Munch (12 December 1863 – 23 January 1944) was a Norwegian painter and
+                    printmaker whose intensely evocative treatment of psychological themes built upon some of the main
+                    tenets of late 19th-century Symbolism and greatly influenced German Expressionism in the early 20th
+                    century. His best known work is The Scream, painted in 1893.</p>
+                <br/>
+                <p class="content">Edvard Munch was born in a farmhouse in the village of Ådalsbruk in Løten, United Kingdoms of Sweden
+                    and Norway, to Laura Catherine Bjølstad and Christian Munch, the son of a priest. Christian was a
+                    doctor and medical officer who married Laura, a woman half his age, in 1861. Edvard had an elder
+                    sister, Johanne Sophie, and three younger siblings: Peter Andreas, Laura Catherine, and Inger Marie.
+                    Laura was artistically talented and may have encouraged Edvard and Sophie. Edvard was related to
+                    painter Jacob Munch and to historian Peter Andreas Munch
+                </p>
+                <br/>
+                <p class="content">
+                    The family moved to Christiania (renamed Kristiania in 1877, and now Oslo) in 1864 when Christian
+                    Munch was appointed medical officer at Akershus Fortress. Edvard's mother died of tuberculosis in
+                    1868, as did Munch's favorite sister Johanne Sophie in 1877. After their mother's death, the
+                    Munch siblings were raised by their father and by their aunt Karen. Often ill for much of the
+                    winters and kept out of school, Edvard would draw to keep himself occupied. He was tutored by his
+                    school mates and his aunt. Christian Munch also instructed his son in history and literature, and
+                    entertained the children with vivid ghost-stories and the tales of American writer Edgar Allan Poe.
+                </p>
+                <br/>
+                <br/>
+                <br/>
             </div>
             <div class="documentation">
                 <!-- All the documentation boxes -->
@@ -80,9 +105,15 @@
                         <p class="content">So, the biggest difference between a grid and a flexbox is the dimension.
                             You can make the same layout with both a grid and a flexbox. You could for example just make
                             a vertical flexbox inside every item in a horizontally flexbox, and then you will have a
-                            grid. Choose which ever fits your page best.</p>
-
-                        <img src="https://pogaltd.com/wp-content/uploads/2017/08/grid-vs-flexbox.jpg"/>
+                            grid. Choose which ever fits your page best. You can guess how i made this documentation page</p>
+                        <figure>
+                            <img src="https://pogaltd.com/wp-content/uploads/2017/08/grid-vs-flexbox.jpg"/>
+                            <figcaption>Source:
+                                <a href="https://pogaltd.com/advancing-css-grid-two-dimensional-framework/">
+                                    https://pogaltd.com/advancing-css-grid-two-dimensional-framework/
+                                </a>
+                            </figcaption>
+                        </figure>
 
                     </div>
                 </div>
@@ -90,40 +121,135 @@
                 <div>
                     <div class="docBoxBtn" title="svgVsCanvas">SVG vs. Canvas</div>
                     <div id="svgVsCanvas" style="display: none">
-                        <p class="content">LALALALakdja adlkasjdlkasjd sajldkjsakldj jsladjksdj lksajdklasjd
-                            lksadjkljsadlsakdjskladjklajs</p>
+                        <p class="content"><strong>Canvas</strong></p>
+                        <p class="content">A canvas is just a container element where we can draw new graphics on the
+                            fly. You do not write html code to add graphic to a canvas, you will have to use JavaScript.
+                            Canvas has different methods for adding rectangles and circles, and you are also able to
+                            draw your own kind of shapes. </p>
+                        <br/>
+                        <p class="content"><strong>SVG</strong></p>
+                        <p class="content">SVG stands for Scalable Vector Graphics, which is good because that means
+                            that you can scale it how much you want while retaining the same quality. So elements like
+                            this are used to define vector elements on a webpage, and the way that this is defined is
+                            in XML. XML is just another markup language, and I will not focus on that here. <br/>
+                            So SVG works in some way like a canvas, you have to define an area where there can be added
+                            SVG graphic, but all this is written in the HTML file. This means that every SVG element
+                            can have its own id, which makes it possible to search for in a document.
+                        </p>
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bitmap_VS_SVG.svg/800px-Bitmap_VS_SVG.svg.png"/>
+                            <figcaption>Source:
+                                <a href="https://no.wikipedia.org/wiki/Scalable_Vector_Graphics">
+                                    https://no.wikipedia.org/wiki/Scalable_Vector_Graphics
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <br/>
+                        <p class="content">So, what is the biggest difference here? SVG elements are searchable because
+                            they can have their own id. Drawings in a canvas will not have this option. They way that
+                            I made it possible to change speed and colors of drawings in my canvas, is by using saving
+                            information about them in different objects. I then iterate trough a list of objects
+                            looking for the attributes that I want to change. With an SVG element, I could have found
+                            them instantly. <br/>
+                            It is also much easier to make a lot of elements in a canvas then with SVG, because I can
+                            just script it as I did in canvas.js.
+                        </p>
                     </div>
                 </div>
 
                 <div>
                     <div class="docBoxBtn" title="jQuery">jQuery</div>
                     <div id="jQuery" style="display: none">
-                        <p class="content">LALALALakdja adlkasjdlkasjd sajldkjsakldj jsladjksdj lksajdklasjd
-                            lksadjkljsadlsakdjskladjklajs</p>
+                        <p class="content">jQuery is a fast, small, and feature-rich JavaScript library. It makes
+                            traversing trough HTML documents much easier with an API that works across multiple
+                            browsers. Stuff like manipulating, event handling, animation and Ajax is also made
+                            easy-to-use in jQuery. The basic syntax is $(selector).action, where $ actually just
+                            stands for jQuery, and the selector is the element you want to perform the action on</p>
+                            <br/>
+                        <p class="content">
+                            In my project the main usage of jQuery has been to traverse the document to find
+                            elements with a specific class or id. With these elements I have just added click events,
+                            but also on the colorPickers a made changed the oninput function with use of jQuery.
+                            So every time I would like to reference a element in the HTML file, I used jQuery to
+                            find it basically.
+                        </p>
+                            <br/>
+                        <p class="content">
+                            For this small project I have not had much usage of all that jQuery has to offer. Maybe
+                            it would have looked different if I had used SVG and could have used jQuery´s ability to
+                            animate with css-styling. But the main element of my website is the canvas, which is all
+                            JavaScript objects. jQuery also makes it easy to show and hide elements, which I
+                            am using here yo show and hide content in the documentation. This is just one of the event
+                            functions that jQuery has, but since I have used it several times I thought it would be
+                            nice to mention. All it really does is changing the display value in the css, which could
+                            have been done without the jQuery.
+                        </p>
                     </div>
                 </div>
 
                 <div>
                     <div class="docBoxBtn" title="browser">Cross-Browser Testing</div>
                     <div id="browser" style="display: none">
-                        <p class="content">LALALALakdja adlkasjdlkasjd sajldkjsakldj jsladjksdj lksajdklasjd
-                            lksadjkljsadlsakdjskladjklajs</p>
+                        <p class="content">The first difference that I manage to find by testing different browsers
+                        was the colorPicker. If you open this page in Chrome you will see that the colorPickers actually
+                        makes it possible to pick colors from a selection of colors. In Safari the colorPicker is
+                        just a normal input field. Here you will have to manually write the color code, but this
+                        also works fine on my website. </p>
+                        <br/>
+                        <p class="content">This was just one example of why you should test in different browsers.
+                        So one thing is the appearance of the website, but another is the functionality. Just as humans
+                        interpret things differently, so do browsers when reading code. So the goal of doing
+                        cross-browser testing is to ensure that the user are able to access all the content and execute
+                        all the different functions your website has to offer without any major issues or sacrifices</p>
+                        <br/>
+                        <p class="content">So what have I done to test that this page is working as it should?
+                        As i mentioned above with the colorPicker, I opened the page in two different browsers, Safari
+                        and Chrome. Here I first looked at all the visuals, like shapes, colors and resizing. Next
+                        I checked if all the function that I was able to do in Chrome, also worked in Safari. Functions
+                        like changing the color of figures in the canvas, and changing the speed in both x and y
+                        directions.</p>
+
+
                     </div>
                 </div>
 
                 <div>
                     <div class="docBoxBtn" title="tutorials">Tutorials</div>
                     <div id="tutorials" style="display: none">
-                        <p class="content">LALALALakdja adlkasjdlkasjd sajldkjsakldj jsladjksdj lksajdklasjd
-                            lksadjkljsadlsakdjskladjklajs</p>
+                        <p class="content">Most of my time learning about the different topics in this project
+                        I have used YouTube as my main source. Here I have seen tutorials about the use of grid,
+                        jQuery and canvas. I will link to all the video series in the end. Before I started with this
+                        project I had minimale knowledge about all of these topics, so the first place I always started
+                        was w3school. Here you will find all the information about how to start using all kinds
+                        of elements in HTML, CSS and JavaScript</p>
+                        <br/>
+                        <ul class="content">
+                            <li>Learn about CSS-grids <a href="https://www.youtube.com/watch?v=jV8B24rSN5o">here</a></li>
+                            <li>A playlist for learning jQuery
+                                <a href="https://www.youtube.com/watch?v=46Jz0QJyhN0&list=PLUoqTnNH-2Xwmr2GvOdZMJnrp6b51ndZE">here</a>
+                            </li>
+                            <li>Tutorial on interactive canvas
+                                <a href="https://www.youtube.com/watch?v=EO6OkltgudE&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL">here</a>
+                            </li>
+                            <li>
+                                Good starting point at <a href="https://www.w3schools.com/"> w3schools</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <div>
-                    <div class="docBoxBtn" title="sorces">Sources</div>
+                    <div class="docBoxBtn" title="sources">Sources</div>
                     <div id="sources" style="display: none">
-                        <p class="content">LALALALakdja adlkasjdlkasjd sajldkjsakldj jsladjksdj lksajdklasjd
-                            lksadjkljsadlsakdjskladjklajs</p>
+                        <ul class="content">
+                            <li>'Chris Courses', 'HTML5 Canvas Tutorials for Beginners | Become a Canvas Pro', 2017. [Online]. Available: https://www.youtube.com/watch?v=EO6OkltgudE&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL</li>
+                            <br/>
+                            <li>Hussey.  Brad, 'Learn jQuery Free - Ultimate Web Developer', 2015. [Online]. Available: https://www.youtube.com/watch?v=46Jz0QJyhN0&list=PLUoqTnNH-2Xwmr2GvOdZMJnrp6b51ndZE</li>
+                            <br/>
+                            <li>'Traversy Media', 'CSS Grid Layout Crash Course', 2017 [Online]. Available: https://www.youtube.com/watch?v=jV8B24rSN5o</li>
+                            <br/>
+                            <li>'w3schools' [Online]. Available: https://www.w3schools.com/</li>
+                        </ul>
                     </div>
                 </div>
 
