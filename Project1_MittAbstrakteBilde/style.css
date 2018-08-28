@@ -11,7 +11,7 @@ body {
 
     display: grid;
     grid-gap: 1em;
-    grid-auto-columns:minmax(300px, auto);
+    grid-auto-columns:minmax(auto, 300px);
 }
 
 .page > div {
@@ -84,7 +84,26 @@ h3{
     background-color: #f3f8f6;
     word-wrap: break-word;
     margin:10px 10px 10px 10px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
+
+.content {
+    width:90%;
+    margin: 0 auto;
+}
+
+.docBoxBtn {
+    cursor:pointer;
+    color:white;
+    background-color:#0ac5b5;
+    border: 1px solid #fcfcfc;
+    width: 25%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px 0;
+}
+
+
 
 canvas {
     padding: 0;

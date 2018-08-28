@@ -1,4 +1,4 @@
-$(".documentation").hide();
+$(".home").hide();
 
 $("#homeBtn").click(function () {
     $(".home").show();
@@ -10,6 +10,17 @@ $("#docBtn").click(function () {
     $(".home").hide();
 });
 
+
+$(".docBoxBtn").click((event) => {
+    const btn = event.target;
+    const content = $("#"+btn.title)
+    if(content.is(":visible")){
+        content.hide()
+    }
+    else{
+        content.show();
+    }
+});
 
 
 
