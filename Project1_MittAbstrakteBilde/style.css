@@ -87,7 +87,7 @@ h3{
 .documentation > div {
     background-color: #f3f8f6;
     word-wrap: break-word;
-    margin:10px 10px 10px 10px;
+    margin:10px 30px;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
@@ -105,6 +105,12 @@ h3{
     margin: 10px auto;
     text-align: center;
     padding: 5px 0;
+}
+
+.docBoxBtn:hover {
+    color:#0ac5b5;
+    background:#fcfcfc;
+    border:1px solid #0ac5b5;
 }
 
 img {
